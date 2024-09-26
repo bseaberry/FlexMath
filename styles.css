@@ -1,0 +1,88 @@
+
+
+* {
+    background-color: #213a57;
+    color: white;
+/*   position: absolute; */
+/*   display: grid; */
+}
+strong {
+    color: #0AD1C8;
+}
+
+button {
+  width: 138px;
+  height: 100px;
+}
+
+h3 {
+    text-align: center;
+    font-size: 100px;
+    color: #0AD1C8;
+  font-family: inter; 
+}
+
+.hero {
+  display: grid;
+  text-align: center;
+  font-size: 20px;
+  line-height: 20px;
+  margin-top: -75px
+}
+
+.math-prompt {
+  display: grid;
+  width: 840px;
+  height: 360px;
+  background-color: #0AD1C8;
+  position: absolute;
+  left: 225px;
+}
+
+.timer-box {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  justify-self: end;
+  margin-right: 30px;
+  margin-top: 20px;
+}
+
+.timer-box p {
+  margin-top: 35px;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.start-banner {
+ height: 100px;
+  width: 402px;
+ justify-self: center;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+#start-banner {
+  margin-top: 29px;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+#clear-btn {
+ justify-self: center;
+ align-self: end;
+
+}
+
+#start-btn {
+ justify-self: center;
+  align-self: end;
+}
+
+.wrap {
+  display: flex;
+  widthL 100%;
+  justify-content: space-around;
+  background-color: #0ad1c8;
+}

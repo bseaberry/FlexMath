@@ -4,7 +4,7 @@ const startButton = document.getElementById('start-btn');
 const clearButton = document.getElementById('clear-btn');
 let prompt = document.getElementById('start-banner');
 let input = document.getElementsByTagName('input').value;
-const answer = parseInt(input);
+let answer;
 let minValue = 15;
 let maxValue = 50;
 let questionNumber = 1;
@@ -22,10 +22,16 @@ function handleGame() {
     console.log(solution);
     prompt.innerHTML = 
       `<p style="font-size: 20px">${questionNumber}: ${numberOne} + ${numberTwo}</p>
-      <input type="text" oninput="${answer} === ${solution} ? 
-      alert('try again') : nextProblem()"
+      <input type="text" oninput="${input} === null ? 
+      alert('try again') : parseInt(input)"
       placeholder="Answer">
       </input>`;
+
+      if ( input !== solution) {
+        alert('Incorrect, try again')
+      } else {
+        nextProblem();
+      }
   }
 
 //Countdown function starts when 'Start' is clicked.
@@ -49,6 +55,7 @@ startButton.onclick = function () {
     timerElement.innerText = countdown;
     alert('Game Over');
     prompt.innerHTML = ` <p id ='start-banner'>Press Start</p>`
+    questionNumber = 1;
   }
 }, 1000);
 }
@@ -61,6 +68,7 @@ startButton.onclick = function () {
     timerElement.innerText = countdown;
     alert('Game Over');
     prompt.innerHTML = ` <p id ='start-banner'>Press Start</p>`
+    questionNumber = 1;
    }
  }
 

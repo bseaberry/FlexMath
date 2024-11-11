@@ -87,7 +87,7 @@ h3 {
   background-color: #0ad1c8;
 }
 
-input #submit-btn {
-  width: 50;
-  height: 25;
+#submit-btn {
+  width: 15px;
+  height: 25px;
 }

@@ -16,14 +16,14 @@ let numberTwo = Math.floor(Math.random() *
 
 let solution = numberOne + numberTwo;
 
-//Layout Game Logic
+//Function displays math equations.
 function handleGame() {
   console.log(solution);
   prompt.innerHTML =
     `<p style="font-size: 20px" id="question">${questionNumber}: ${numberOne} + ${numberTwo}</p>
       <input type="text"
       placeholder="Answer">
-      <button id='submit-btn' onclick="processAnswer()">Submit</button>
+      <button id ="submit-btn" onclick="processAnswer()">Submit</button>
       </input>`;
 
 };
@@ -65,8 +65,6 @@ startButton.onclick = function () {
     clearInterval(countDownTimer);
   }
 
-  //Calls the game function
-  handleGame();
   //Countdown starts.
   countDownTimer = setInterval(() => {
     timerElement.innerText = countdown;
@@ -81,6 +79,9 @@ startButton.onclick = function () {
       questionNumber = 1;
     }
   }, 1000);
+
+   //Calls the game function
+   handleGame();
 };
 
 //Clear countdown when 'Clear' is clicked.
@@ -123,5 +124,4 @@ function nextProblem() {
   }
   
   handleGame();
-  
 };

@@ -74,7 +74,9 @@ startButton.onclick = function () {
       clearInterval(countDownTimer);
       countdown = 30;
       timerElement.innerText = countdown;
-      alert('Game Over');
+      alert(`
+        Game Over
+        Points: ${questionNumber - 1}`);
       prompt.innerHTML = ` <p id ='start-banner'>Press Start</p>`
       questionNumber = 1;
     }
@@ -90,7 +92,9 @@ clearButton.onclick = function () {
     clearInterval(countDownTimer);
     countdown = 30;
     timerElement.innerText = countdown;
-    alert('Game Over');
+    alert(`
+      Game Over
+      Points: ${questionNumber - 1}`);
     prompt.innerHTML = ` <p id ='start-banner'>Press Start</p>`
     questionNumber = 1;
   }

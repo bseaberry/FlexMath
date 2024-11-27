@@ -22,9 +22,11 @@ function handleGame() {
   prompt.innerHTML =
     `<p style="font-size: 20px" id="question">${questionNumber}: ${numberOne} + ${numberTwo}</p>
       <input type="text"
-      placeholder="Answer">
+      placeholder="Answer"
+      autofocus>
       <button id ="submit-btn" onclick="processAnswer()">Submit</button>
       </input>`;
+      
 
 };
 
@@ -84,6 +86,14 @@ startButton.onclick = function () {
 
    //Calls the game function
    handleGame();
+   document.querySelector("input").focus();
+   document.querySelector("input").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      document.getElementById('submit-btn').click();
+    }
+   });
+   
 };
 
 //Clear countdown when 'Clear' is clicked.
@@ -110,22 +120,30 @@ function nextProblem() {
   questionNumber++;
   //Increases values after 3 questions.
   if (questionNumber > 2) {
-    minValue = 11;
-    maxValue = 19;
-  } else if (questionNumber > 7) {
-    minValue = 20;
-    maxValue = 30;
+    minValue += 5
+    maxValue += 5;
+  } else if (questionNumber > 6) {
+    minValue += 5;
+    maxValue += 5;
   } else if (questionNumber > 10) {
-    minValue = 31;
-    maxValue = 45;
+    minValue += 5;
+    maxValue += 5;
   }
   else if (questionNumber > 13) {
-    minValue = 46;
-    maxValue = 55;
+    minValue += 5;
+    maxValue += 5;
   } else if (questionNumber > 16) {
-    minValue = 56;
-    maxValue = 65;
+    minValue += 5;
+    maxValue += 5;
   }
   
   handleGame();
+  document.querySelector("input").focus();
+  document.querySelector("input").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      document.getElementById('submit-btn').click();
+    }
+   });
+
 };

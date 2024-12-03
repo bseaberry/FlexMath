@@ -23,11 +23,10 @@ function handleGame() {
     `<p style="font-size: 20px" id="question">${questionNumber}: ${numberOne} + ${numberTwo}</p>
       <input type="text"
       placeholder="Answer"
-      autofocus>
+      id="answer"
+      >
       <button id ="submit-btn" onclick="processAnswer()">Submit</button>
       </input>`;
-      
-
 };
 
 const processAnswer = () => {
@@ -36,7 +35,7 @@ const processAnswer = () => {
   let inputVal = input[0].value;
 
   if (inputVal === null) {
-    alert('Try again.');
+    alert('Please enter a value.');
   } else {
     answer = parseInt(inputVal);
   }
@@ -47,7 +46,7 @@ const processAnswer = () => {
     nextProblem();
   }
 };
-
+//Generates random integers for nextProblem().
 const getRandomInts = (numOne, numTwo) => {
   return {
     numOne: Math.floor(Math.random() *
@@ -81,12 +80,15 @@ startButton.onclick = function () {
         Points: ${questionNumber - 1}`);
       prompt.innerHTML = ` <p id ='start-banner'>Press Start</p>`
       questionNumber = 1;
+      minValue = 2;
+      maxValue = 10;
     }
   }, 1000);
 
    //Calls the game function
    handleGame();
    document.querySelector("input").focus();
+   //Triggers the button onclick when a user presses enter.
    document.querySelector("input").addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
       event.preventDefault();
@@ -105,8 +107,10 @@ clearButton.onclick = function () {
     alert(`
       Game Over
       Points: ${questionNumber - 1}`);
-    prompt.innerHTML = ` <p id ='start-banner'>Press Start</p>`
-    questionNumber = 1;
+      prompt.innerHTML = ` <p id ='start-banner'>Press Start</p>`
+      questionNumber = 1;
+      minValue = 2;
+      maxValue = 10;
   }
 };
 
@@ -120,11 +124,11 @@ function nextProblem() {
   questionNumber++;
   //Increases values after 3 questions.
   if (questionNumber > 2) {
-    minValue += 5
-    maxValue += 5;
-  } else if (questionNumber > 6) {
     minValue += 5;
-    maxValue += 5;
+    maxValue += 3;
+  } else if (questionNumber > 7) {
+    minValue += 5;
+    maxValue += 3;
   } else if (questionNumber > 10) {
     minValue += 5;
     maxValue += 5;
@@ -136,7 +140,7 @@ function nextProblem() {
     minValue += 5;
     maxValue += 5;
   }
-  
+  //Loads the next prompt.
   handleGame();
   document.querySelector("input").focus();
   document.querySelector("input").addEventListener("keypress", function(event) {
